@@ -1,7 +1,8 @@
 import express from 'express';
+import path from 'path';
 
 export const shopRoutes = express.Router();
 
 shopRoutes.get('/', (req, res) => {
-  res.send('<h1>Hello from Express!</h1>');
+  res.sendFile(path.join(__dirname, '../', 'views', 'shop.html'));
 });

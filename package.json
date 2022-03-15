@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./dist/app.js"
+    "dev": "nodemon ./dist/app.js",
+    "build": "npm run clean && tsc && npm run copy-files",
+    "clean": "rm -rf ./dist",
+    "copy-files": "cp ./src/public/ ./dist/"
   },
   "author": "",
   "license": "ISC",
