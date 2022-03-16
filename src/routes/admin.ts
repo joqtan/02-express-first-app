@@ -4,7 +4,7 @@ import path from 'path';
 export const adminRoutes = express.Router();
 
 adminRoutes.get('/add-product', (req, res) => {
-  res.sendFile(path.join(__dirname, '../', 'views', 'add-product.html'));
+  res.sendFile(path.join(__dirname, '..', 'views', 'add-product.html'));
 });
 
 adminRoutes.post('/add-product', (req, res) => {
