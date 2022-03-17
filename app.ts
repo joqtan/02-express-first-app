@@ -1,7 +1,6 @@
 import express from 'express';
-import { shopRoutes } from './routes/shop';
-import { adminRoutes } from './routes/admin';
-import path from 'path';
+import { shopRoutes } from './routes/shop.js';
+import { adminRoutes } from './routes/admin.js';
 // import { engine } from 'express-handlebars';
 
 const app = express();
@@ -15,10 +14,10 @@ const app = express();
 //   })
 // );
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', 'views');
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static('public'));
 
 app.use('/admin', adminRoutes);
 
@@ -28,7 +27,7 @@ app.get('/*', (req, res) => {
   //* sending statically
   // res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
   // * rendering with pug and handlebars
-  res.status(400).render('404', { pageTitle: '404 Not Found' });
+  // res.status(400).render('404', { pageTitle: '404 Not Found' });
   // * rendering with ejs
   res.status(400).render('404', { pageTitle: '404 Not Found', path: null });
 });
