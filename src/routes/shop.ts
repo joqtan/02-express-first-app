@@ -6,5 +6,5 @@ export const shopRoutes = express.Router();
 
 shopRoutes.get('/', (req, res) => {
   // res.sendFile(path.join(__dirname, '..', 'views', 'shop.html'));
-  res.render('shop', { products, docTitle: 'Shop' });
+  res.render('shop', { products, pageTitle: 'Shop', path: '/' });
 });
