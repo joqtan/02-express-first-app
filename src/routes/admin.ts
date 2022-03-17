@@ -14,11 +14,16 @@ adminRoutes.get('/add-product', (req, res) => {
   //   path: '/admin/add-product',
   // });
   // * rendering with handlebars
+  // res.render('add-product', {
+  //   pageTitle: 'Add Product',
+  //   productCSS: true,
+  //   formsCSS: true,
+  //   activeAddProduct: true,
+  // });
+  // * rendering with ejs
   res.render('add-product', {
     pageTitle: 'Add Product',
-    productCSS: true,
-    formsCSS: true,
-    activeAddProduct: true,
+    path: '/admin/add-product',
   });
 });
 

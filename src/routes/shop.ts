@@ -14,11 +14,17 @@ shopRoutes.get('/', (req, res) => {
   //   path: '/'
   // });
   // * rendering with handlebars
+  // res.render('shop', {
+  //   products,
+  //   pageTitle: 'Shop',
+  //   hasProducts: products.length > 0,
+  //   productCSS: true,
+  //   activeShop: true,
+  // });
+  // * rendering with ejs
   res.render('shop', {
     products,
     pageTitle: 'Shop',
-    hasProducts: products.length > 0,
-    productCSS: true,
-    activeShop: true,
+    path: '/',
   });
 });
