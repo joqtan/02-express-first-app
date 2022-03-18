@@ -1,10 +1,5 @@
-import { Request, Response } from 'express';
-
-export const products: { title: string }[] = [];
-
-type Controller = {
-  (req: Request, res: Response): void;
-};
+import { Product } from '../models/product';
+import { Controller } from '../types/controllerTypes';
 
 export const getAddProduct: Controller = (req, res) => {
   res.render('add-product', {
@@ -14,11 +9,13 @@ export const getAddProduct: Controller = (req, res) => {
 };
 
 export const postAddProduct: Controller = (req, res) => {
-  products.push({ title: req.body.title });
+  const product = new Product(req.body.title);
+  product.save();
   res.redirect('/');
 };
 
 export const getProducts: Controller = (req, res) => {
+  const products = Product.fetchAll();
   res.render('shop', {
     products,
     pageTitle: 'Shop',
